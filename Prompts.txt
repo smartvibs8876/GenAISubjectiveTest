@@ -1,0 +1,22 @@
+Hi Cody
+Create a component for react . This component should contain a styling css form for login and registration. Path for component should be FRONT-END/src
+
+
+Write code for home page of an ecommerce application. It is a react compontnt .The title of the home page should be Vibhav Mart.The header should contain title and there should be navigation options like cart, home, products and login . The navigation options should collapse under a hamburger menu upon reducing screen size. Style the home page using responsive css. Page should be beautified with colors of your choise.
+
+The header title ie "Vibhav Mart" should appear at the center of the page
+
+Change the header title to Vibhav Electronics mart in the home component
+
+Change the home component name from Home to Header
+
+Change login link to login/register in the heading of header
+
+Write code for react router. The react router should have routes to the following:-
+
+Home component path:- ""
+Products component path:-"/products"
+Cart Component :- "/cart"
+AuthForm Component:- "/auth"
+All 4 components should contain header component
+
