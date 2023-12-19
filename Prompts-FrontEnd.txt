@@ -20,3 +20,13 @@ Cart Component :- "/cart"
 AuthForm Component:- "/auth"
 All 4 components should contain header component
 
+
+Design a stylish login form for AuthForm component. Add validations to the form. Form should be centered. Upon entering valid details , form makes an API call to backend endpoint ie http://localhost:3000/login
+
+Make the form stylish
+
+center the form
+
+Write a function to navigate to a specific path on button click
+
+

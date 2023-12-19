@@ -37,19 +37,17 @@ const db = mysql.createConnection({
   });
  // Login route 
 app.post('/login', (req, res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
   
     // Get phone number from database
-    const getPhoneSql = `SELECT phoneNo FROM users WHERE username = ? AND password = ?`;
+    const getPhoneSql = `SELECT phone FROM users WHERE email = ? AND password = ?`;
     
-    db.query(getPhoneSql, [username, password], (err, result) => {
+    db.query(getPhoneSql, [email, password], (err, result) => {
       if (err) {
+        console.log(err)
         res.status(500).send('Error querying database');
       } else if (result.length > 0) {
-       
-
         const otp = Math.floor(100000 + Math.random() * 900000); 
-  
         const message = `OTP to login to Vibhav Electronics Mart is ${otp}`;
         res.json(message)
       } else {
@@ -59,12 +57,12 @@ app.post('/login', (req, res) => {
   
   });
   
-  app.post('/users', (req, res) => {
+  app.post('/register', (req, res) => {
     let user = req.body;
-    let sql = `INSERT INTO users (username, password, phoneNo, userType) 
-               VALUES (?,?,?,?)`;
+    let sql = `INSERT INTO users (email, password, phone) 
+               VALUES (?,?,?)`;
     
-    db.query(sql, [user.username, user.password, user.phoneNo, user.userType], err => {
+    db.query(sql, [user.email, user.password, user.phone], err => {
       if (err) {
         res.status(500).send('Error inserting user data');  
         return;
@@ -74,6 +72,34 @@ app.post('/login', (req, res) => {
   
   });
 
+  app.put('/passwordChange', async (req, res) => {
+
+    const { email, oldPassword, newPassword } = req.body;
+  
+    db.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => {
+      if (error) throw error;
+  
+      if (results.length == 0) {
+        return res.status(400).json({ message: 'User not found' });
+      }
+  
+      const user = results[0];
+  
+      // Verify old password
+      const isMatch = oldPassword === user.password;
+      if (!isMatch) {
+        return res.status(400).json({ message: 'Incorrect old password' });
+      }
+    
+      // Update password in DB
+      db.query('UPDATE users SET password = ? WHERE email = ?', [newPassword, email], (error, results) => {
+        if (error) throw error;
+        res.json({ message: 'Password updated successfully' });
+      });
+  
+    });
+  
+  });
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
 });

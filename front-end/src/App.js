@@ -4,8 +4,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Products from './Products';
 import Cart from './Cart';
-import AuthForm from './AuthForm';
+import Login from './Login';
 import Header from './Header';
+import Register from './Register';
+import PasswordChange from './PasswordChange';
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />  
             <Route path="/cart" element={<Cart />} />
-            <Route path="/auth" element={<AuthForm />} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/register" element={<Register/>} />
+            <Route path="/passwordChange" element={<PasswordChange/>} />
           </Routes>
         </BrowserRouter>
 
