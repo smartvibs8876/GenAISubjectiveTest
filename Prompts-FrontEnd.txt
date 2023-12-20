@@ -62,3 +62,5 @@ Align checkout button in Cart.js at the center
 Create a payment component in React. The payment component recieves a prop from cart ie the total price of your order. It should have a form for user to enter card details necessary for payment.. The form should have card validations after payment route to the home page
 
 isValidCard is undefined
+
+Style the form in payment component
