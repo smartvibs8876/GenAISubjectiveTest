@@ -2,6 +2,9 @@ import React from 'react'
 import { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { toggle } from './redux/actions';
+import { useDispatch } from 'react-redux';
+//import { useDispatch, useSelector } from'@reduxjs/toolkit'
 
 const Form = styled.form`
   background: #fff;
@@ -46,6 +49,7 @@ const Container = styled.div`
 function Login(){
     const [email, setEmail] = useState(''); 
     const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -63,6 +67,8 @@ function Login(){
   
       if(response.ok) {
         alert('Login successful!');
+        dispatch(toggle())
+        navigate('/')
       } else {
         alert('Invalid credentials!'); 
       }

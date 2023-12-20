@@ -8,6 +8,7 @@ import Login from './Login';
 import Header from './Header';
 import Register from './Register';
 import PasswordChange from './PasswordChange';
+import Payment from './Payment'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/login" element={<Login/>} />
             <Route path="/register" element={<Register/>} />
             <Route path="/passwordChange" element={<PasswordChange/>} />
+            <Route path="/payment" element={<Payment/>} />
           </Routes>
         </BrowserRouter>
 

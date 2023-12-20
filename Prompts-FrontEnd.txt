@@ -29,4 +29,36 @@ center the form
 
 Write a function to navigate to a specific path on button click
 
+Create a redux state with one boolean value. The redux state should have a function to toggle the boolean value.
 
+getting error useSelector and useDispatch is not defined
+
+could not find react-redux context value; please ensure the component is wrapped in a Provider
+
+create Store is not defined
+
+createStore is deprecated
+
+Write code for home component to load all images in src/images. The images should be displayed as a carousel. The carousel should be centered
+
+Write code for home component to load all images in src/images. The images should be displayed as a carousel. The carousel should be centered. import.meta is an empty object remember.
+
+path /images is not found
+
+Design a 2 x2 grid on products component consisting of all the images in image folder. The grid should have a counter to count number of items. There should be a button to add to cart
+
+The grid is not 2 x 2
+
+In function addToCart in products component add cart to localstorage
+
+Design a cart component . cart object is stored in local storage with key "cart". It is an array of products. Each product has the following keys name description and price. Put this cart info in a tabular format
+
+Add some padding between columns and add some styles to the table
+
+Display total price in the cart
+
+Align checkout button in Cart.js at the center
+
+Create a payment component in React. The payment component recieves a prop from cart ie the total price of your order. It should have a form for user to enter card details necessary for payment.. The form should have card validations after payment route to the home page
+
+isValidCard is undefined

@@ -53,6 +53,9 @@
     text-align: center;
   }
   
+  a{
+    cursor:pointer;
+  }
   /* Responsive */
   
   @media (max-width: 1000px) {
