@@ -64,3 +64,5 @@ Create a payment component in React. The payment component recieves a prop from 
 isValidCard is undefined
 
 Style the form in payment component
+
+Set unit test cases for react project in front-end/

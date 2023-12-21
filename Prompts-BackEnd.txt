@@ -23,3 +23,9 @@ create an api call to check if given username and given password exist in single
 implement error handling for the sql query
 
 Write an API end point for password change. The user table contains email,phone and password. Request body will contain email oldPassword and new password. Check is old password is correct
+
+Use nodemailer to send mail
+
+Create an API endpoint for forgot password. Here password should be reset, updated in database and reset password must be sent via mail. Request body will contain mail. Database used in mysql database. Table is users, with columns email and password
+
+Set unit test cases for back-end/index.js
