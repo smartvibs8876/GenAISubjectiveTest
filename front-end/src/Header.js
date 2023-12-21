@@ -7,6 +7,24 @@ import './Header.css';
 import { useNavigate } from 'react-router-dom';
 import { toggle } from './redux/actions';
 
+async function passwordChange(e) {
+  let email = prompt("Please enter your email", "");
+  if(email === null || email === "") {
+    return
+  }
+  const response = await fetch('http://localhost:3000/forgot-password', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({email}) 
+  });
+  if (response.ok) {
+    alert("Password sent to your registered mail")
+  }else {
+    alert("Oops something went wrong")
+  }
+}
 
 function Header() {
 
@@ -37,6 +55,7 @@ function Header() {
               :<React.Fragment>
                 <li><a onClick={()=>{navigate("/login")}}>Login</a></li>
                 <li><a onClick={()=>{navigate("/register")}}>Register</a></li>
+                <li><a onClick={()=>{passwordChange()}}>Forgot Password</a></li>
               </React.Fragment>
             }
 

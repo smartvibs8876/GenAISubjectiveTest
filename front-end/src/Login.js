@@ -64,11 +64,18 @@ function Login(){
         },
         body: JSON.stringify({email, password}) 
       });
-  
+
       if(response.ok) {
-        alert('Login successful!');
-        dispatch(toggle())
-        navigate('/')
+        const otp  = await response.json()
+        console.log(otp)
+        let otpCheck = prompt("Please enter otp recieved on mail", "");
+        if( otpCheck == otp){
+          dispatch(toggle())
+          navigate('/')
+        }
+        else{
+          alert("Invalid otp")
+        }
       } else {
         alert('Invalid credentials!'); 
       }
@@ -94,11 +101,11 @@ function Login(){
 
                     <Button type="submit">Login</Button>
                     <Button type="submit" onClick={(e)=>{navigate("/passwordChange")}}>Change Password</Button>
-                    <Button type="submit">Forgot Password</Button>
                 </Form>
             </Container>
-
             </div>
+
+
         </React.Fragment>
     );
 }
